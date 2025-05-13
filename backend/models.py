@@ -21,6 +21,19 @@ class Log(SQLModel, table=True):
     owner_username: str = Field(foreign_key="user.username")
     owner: User = Relationship(back_populates="uploaded_logs")
 
+    anomalies: List["Anomaly"] = Relationship(back_populates="log")
+
+
+class Anomaly(SQLModel, table=True):
+    anomaly_id: str = Field(primary_key=True)
+
+    description: str
+    explanation: str
+    confidence: float
+
+    log_id: str = Field(foreign_key="log.log_id")
+    log: Log = Relationship(back_populates="anomalies")
+
 
 class Token(BaseModel):
     access_token: str

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routers import users, upload
+from .routers import users, upload, gemini
 from .database import create_db_and_tables
 
 app = FastAPI()
@@ -12,3 +12,4 @@ def on_startup():
 
 app.include_router(users.router)
 app.include_router(upload.router)
+app.include_router(gemini.router)

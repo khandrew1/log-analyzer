@@ -3,3 +3,4 @@ sqlmodel
 pyjwt
 passlib[bcrypt]
 pydantic-settings
+google-genai

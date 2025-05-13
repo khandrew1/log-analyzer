@@ -4,6 +4,8 @@ from typing import Annotated
 
 from fastapi import Depends, HTTPException, status
 from sqlmodel import Session
+from google import genai
+
 from fastapi.security import OAuth2PasswordBearer
 from backend.models import User, TokenData
 from backend.database import get_session
@@ -12,6 +14,8 @@ from backend.settings import settings
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 SessionDep = Annotated[Session, Depends(get_session)]
+
+client = genai.Client(api_key=settings["GEMINI_API_KEY"])
 
 
 def fake_decode_token(token):
