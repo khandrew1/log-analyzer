@@ -7,9 +7,9 @@ from sqlmodel import Session
 from google import genai
 
 from fastapi.security import OAuth2PasswordBearer
-from backend.models import User, TokenData
-from backend.database import get_session
-from backend.settings import settings
+from app.models import User, TokenData
+from app.database import get_session
+from app.settings import settings
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 

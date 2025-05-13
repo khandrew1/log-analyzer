@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from .routers import users, upload, gemini
-from .database import create_db_and_tables
+from app.routers import users, upload, gemini
+from app.database import create_db_and_tables
 
 app = FastAPI()
 

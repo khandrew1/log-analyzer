@@ -2,8 +2,8 @@ import json
 from fastapi import APIRouter
 from sqlmodel import select
 
-from backend.dependencies import SessionDep, client
-from backend.models import Log, Anomaly
+from app.dependencies import SessionDep, client
+from app.models import Log, Anomaly
 
 router = APIRouter()
 

@@ -7,9 +7,9 @@ from fastapi.security import OAuth2PasswordRequestForm
 import jwt
 from passlib.context import CryptContext
 
-from backend.models import User, Token
-from backend.dependencies import get_current_user, SessionDep
-from backend.settings import settings
+from app.models import User, Token
+from app.dependencies import get_current_user, SessionDep
+from app.settings import settings
 
 router = APIRouter()
 

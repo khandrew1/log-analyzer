@@ -1,12 +1,12 @@
-from typing import Dict, List, Annotated
+from typing import Annotated
 
 import csv
 import uuid
 from io import StringIO
 from fastapi import APIRouter, UploadFile, Depends
 
-from backend.dependencies import get_current_user, SessionDep
-from backend.models import User, Log
+from app.dependencies import get_current_user, SessionDep
+from app.models import User, Log
 
 router = APIRouter()
 
