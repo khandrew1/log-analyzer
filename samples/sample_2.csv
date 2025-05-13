@@ -1,0 +1,6 @@
+date,time,timezone,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,threat_name,rule_number,bytes_tx,bytes_rx,user_agent
+2025-05-11,08:30:00,+00:00,10.0.0.5,33455,104.16.132.229,443,HTTP,GET,https://cdn.cloudflare.com/script.js,alice,ALLOWED,CDN,none,105,2048,"Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+2025-05-11,08:31:22,+00:00,10.0.0.6,33456,185.199.110.153,443,HTTP,GET,https://api.github.com/repos,alice,ALLOWED,APIs,none,80,512,"curl/7.68.0"
+2025-05-11,09:00:45,+00:00,10.0.0.7,33457,93.184.216.34,80,HTTP,POST,http://example.com/upload,bob,BLOCKED,Malware,Emotet,210,0,0,"Python-urllib/3.9"
+2025-05-11,09:15:10,+00:00,10.0.0.8,33458,151.101.1.69,80,HTTP,GET,http://stackoverflow.com/questions,charlie,ALLOWED,Knowledge Sharing,none,512,1024,"Mozilla/5.0 (X11; Linux x86_64)"
+2025-05-11,09:45:55,+00:00,10.0.0.9,33459,23.45.67.89,22,SSH,CONNECT,ssh://23.45.67.89,dave,BLOCKED,Admin Access,PolicyViolation,0,0,"OpenSSH_8.4"

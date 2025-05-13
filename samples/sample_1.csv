@@ -1,0 +1,6 @@
+timestamp,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,bytes_tx,bytes_rx
+2025-05-10T12:00:00Z,192.168.1.100,52345,93.184.216.34,80,HTTP,GET,http://example.com/index.html,jdoe,ALLOWED,General Web Browsing,512,2048
+2025-05-10T12:01:05Z,192.168.1.101,52346,203.0.113.5,443,HTTP,GET,https://malicious.com/payload.exe,jsmith,BLOCKED,Malware,0,0
+2025-05-10T12:02:30Z,192.168.1.102,52347,198.51.100.22,80,HTTP,POST,http://example.org/login,ajones,ALLOWED,Authentication,256,1024
+2025-05-10T12:15:42Z,192.168.1.103,52348,192.0.2.10,21,FTP,RETR,ftp://ftp.example.net/report.pdf,mwang,ALLOWED,File Transfer,1024,4096
+2025-05-10T12:45:10Z,192.168.1.104,52349,203.0.113.55,80,HTTP,GET,http://example.gov/data,cbrown,BLOCKED,Prohibited Content,0,0
