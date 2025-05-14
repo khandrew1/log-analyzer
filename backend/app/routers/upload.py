@@ -4,6 +4,7 @@ import csv
 import uuid
 from io import StringIO
 from fastapi import APIRouter, UploadFile, Depends
+from sqlmodel import select
 
 from app.dependencies import get_current_user, SessionDep
 from app.models import User, Log
@@ -23,11 +24,20 @@ def parse_log(text: str) -> list[dict[str, str]]:
     return results
 
 
+def clear_logs(session: SessionDep):
+    all_logs = session.exec(select(Log)).all()
+
+    if all_logs:
+        for log_entry in all_logs:
+            session.delete(log_entry)
+        session.commit()
+
+
 def create_logs(logs, owner, session: SessionDep):
+    clear_logs(session)
     for log in logs:
         log["owner_username"] = owner
         log_instance = Log(**log)
-        print(log)
         session.add(log_instance)
 
     session.commit()

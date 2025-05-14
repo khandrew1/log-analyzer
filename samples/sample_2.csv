@@ -1,6 +1,21 @@
-date,time,timezone,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,threat_name,rule_number,bytes_tx,bytes_rx,user_agent
-2025-05-11,08:30:00,+00:00,10.0.0.5,33455,104.16.132.229,443,HTTP,GET,https://cdn.cloudflare.com/script.js,alice,ALLOWED,CDN,none,105,2048,"Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-2025-05-11,08:31:22,+00:00,10.0.0.6,33456,185.199.110.153,443,HTTP,GET,https://api.github.com/repos,alice,ALLOWED,APIs,none,80,512,"curl/7.68.0"
-2025-05-11,09:00:45,+00:00,10.0.0.7,33457,93.184.216.34,80,HTTP,POST,http://example.com/upload,bob,BLOCKED,Malware,Emotet,210,0,0,"Python-urllib/3.9"
-2025-05-11,09:15:10,+00:00,10.0.0.8,33458,151.101.1.69,80,HTTP,GET,http://stackoverflow.com/questions,charlie,ALLOWED,Knowledge Sharing,none,512,1024,"Mozilla/5.0 (X11; Linux x86_64)"
-2025-05-11,09:45:55,+00:00,10.0.0.9,33459,23.45.67.89,22,SSH,CONNECT,ssh://23.45.67.89,dave,BLOCKED,Admin Access,PolicyViolation,0,0,"OpenSSH_8.4"
+timestamp,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,bytes_tx,bytes_rx
+2025-05-10T12:00:00Z,192.168.1.100,52345,93.184.216.34,80,HTTP,GET,http://example.com/index.html,jdoe,ALLOWED,General Web Browse,512,2048
+2025-05-10T12:01:05Z,192.168.1.101,52346,203.0.113.5,443,HTTP,GET,https://malicious.com/payload.exe,jsmith,BLOCKED,Malware,0,0
+2025-05-10T12:02:30Z,192.168.1.102,52347,198.51.100.22,80,HTTP,POST,http://example.org/login,ajones,ALLOWED,Authentication,256,1024
+2025-05-10T12:15:42Z,192.168.1.103,52348,192.0.2.10,21,FTP,RETR,ftp://ftp.example.net/report.pdf,mwang,ALLOWED,File Transfer,1024,4096
+2025-05-10T12:45:10Z,192.168.1.104,52349,203.0.113.55,80,HTTP,GET,http://example.gov/data,cbrown,BLOCKED,Prohibited Content,0,0
+2025-05-10T12:47:15Z,192.168.1.105,49872,104.18.10.25,443,HTTPS,GET,https://newssite.com/article/latest,bking,ALLOWED,News,768,32010
+2025-05-10T12:49:30Z,192.168.1.100,51123,203.0.113.7,80,HTTP,GET,http://gamingforum.org/thread/123,jdoe,ALLOWED,Forums,620,15320
+2025-05-10T12:52:00Z,192.168.1.106,60321,93.184.216.34,80,HTTP,POST,http://example.com/submit_form,lchan,ALLOWED,General Web Browse,340,850
+2025-05-10T12:55:11Z,192.168.1.101,49155,198.51.100.23,443,HTTPS,GET,https://corporate-portal.com/login,jsmith,ALLOWED,Business Systems,450,1250
+2025-05-10T12:58:45Z,192.168.1.107,53211,203.0.113.15,443,HTTPS,GET,https://phishing-site-example.net/login,mpatel,BLOCKED,Phishing,0,0
+2025-05-10T13:02:10Z,192.168.1.102,50001,192.0.2.11,21,FTP,STOR,ftp://ftp.example.net/upload/backup.zip,ajones,ALLOWED,File Transfer,8192,512
+2025-05-10T13:05:30Z,192.168.1.108,54087,104.22.58.102,443,HTTPS,GET,https://streaming-service.tv/play/movie123,sohara,ALLOWED,Streaming Media,1024,502400
+2025-05-10T13:08:05Z,192.168.1.105,49910,203.0.113.60,80,HTTP,GET,http://some-random-blog.info/post/1,bking,ALLOWED,Blogs,580,12050
+2025-05-10T13:10:15Z,192.168.1.109,56123,93.184.216.34,443,HTTPS,GET,https://example.com/secure/download.pdf,rsingh,ALLOWED,General Web Browse,680,18900
+2025-05-10T13:12:50Z,192.168.1.107,53219,198.51.100.24,80,HTTP,GET,http://ads-tracker.com/pixel,mpatel,BLOCKED,Advertising,0,0
+2025-05-10T13:15:00Z,192.168.1.110,57005,203.0.113.22,443,HTTPS,POST,https://paymentgateway.com/process,kbell,ALLOWED,Financial Services,712,2048
+2025-05-10T13:17:22Z,192.168.1.103,51348,192.0.2.10,21,FTP,LIST,ftp://ftp.example.net/public/,mwang,ALLOWED,File Transfer,128,2056
+2025-05-10T13:20:05Z,192.168.1.101,49188,203.0.113.99,80,HTTP,GET,http://unauthorized-software.com/download.exe,jsmith,BLOCKED,Illegal Software,0,0
+2025-05-10T13:22:40Z,192.168.1.111,58001,104.18.10.25,443,HTTPS,GET,https://socialnetwork.com/feed,pduff,ALLOWED,Social Media,950,45600
+2025-05-10T13:25:00Z,192.168.1.106,60390,93.184.216.34,80,HTTP,GET,http://example.com/assets/style.css,lchan,ALLOWED,General Web Browse,200,1530

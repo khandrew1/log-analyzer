@@ -1,0 +1,6 @@
+timestamp,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,bytes_tx,bytes_rx
+2025-05-11T09:05:10Z,192.168.2.15,51023,172.217.10.14,443,HTTPS,GET,https://mail.google.com/mail/u/0/,rgreen,ALLOWED,Email,1024,15360
+2025-05-11T09:05:45Z,192.168.2.15,51024,13.107.136.9,443,HTTPS,GET,https://teams.microsoft.com/prefetch,rgreen,ALLOWED,Business Systems,850,12050
+2025-05-11T09:07:20Z,192.168.2.15,51028,34.107.221.82,80,HTTP,GET,http://developer-docs.com/api/v1,rgreen,ALLOWED,Software Development,600,25000
+2025-05-11T09:08:05Z,192.168.2.22,49888,151.101.193.67,443,HTTPS,GET,https://stackoverflow.com/questions/ask,jlee,ALLOWED,Software Development,750,35070
+2025-05-11T09:10:12Z,192.168.2.15,51035,172.67.199.130,443,HTTPS,POST,https://company-intranet.com/hr/submit_form,rgreen,ALLOWED,Intranet,480,980

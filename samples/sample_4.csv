@@ -1,0 +1,6 @@
+timestamp,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,bytes_tx,bytes_rx
+2025-05-11T10:15:00Z,10.0.1.50,53201,199.232.101.186,443,HTTPS,GET,https://github.com/user/repo,svaldez,ALLOWED,Software Development,1200,45000
+2025-05-11T10:16:30Z,10.0.1.50,53202,3.5.21.53,443,HTTPS,GET,https://suspicious-download.info/free_tool.exe,svaldez,BLOCKED,Malware,0,0
+2025-05-11T10:17:55Z,10.0.1.51,49160,204.79.197.200,80,HTTP,GET,http://bing.com/search?q=news,mchen,ALLOWED,Search Engines,300,8500
+2025-05-11T10:20:05Z,10.0.1.50,53208,199.232.101.186,22,SSH,CONNECT,ssh://internal-git-server/project.git,svaldez,ALLOWED,Software Development,256,1024
+2025-05-11T10:22:10Z,10.0.1.52,50050,142.250.191.196,443,HTTPS,GET,https://youtube.com/watch?v=example,abrown,ALLOWED,Streaming Media,980,601230

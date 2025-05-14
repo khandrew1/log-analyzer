@@ -1,0 +1,6 @@
+timestamp,src_ip,src_port,dst_ip,dst_port,protocol,method,url,user,action,category,bytes_tx,bytes_rx
+2025-05-11T14:30:00Z,192.168.3.112,54100,52.94.236.100,443,HTTPS,GET,https://aws.amazon.com/console/,knguyen,ALLOWED,Cloud Services,1500,28000
+2025-05-11T14:30:50Z,192.168.3.112,54101,52.94.236.100,443,HTTPS,POST,https://aws.amazon.com/ec2/run,knguyen,ALLOWED,Cloud Services,800,4500
+2025-05-11T14:33:15Z,192.168.3.115,50200,35.201.88.101,21,FTP,RETR,ftp://partner-ftp.com/data/report_Q2.xlsx,tclark,ALLOWED,File Transfer,20480,512
+2025-05-11T14:35:00Z,192.168.3.112,54105,172.64.148.22,80,HTTP,GET,http://random-torrent-site.org/download,knguyen,BLOCKED,P2P/Torrents,0,0
+2025-05-11T14:36:20Z,192.168.3.118,49500,104.16.122.88,443,HTTPS,GET,https://crm-platform.com/dashboard,sallen,ALLOWED,Business Systems,900,17000

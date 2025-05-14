@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 from typing import Annotated, Dict
 
-from fastapi import Depends, APIRouter, HTTPException, status
+from fastapi import Depends, APIRouter, HTTPException, status, Response
 from fastapi.security import OAuth2PasswordRequestForm
 
 import jwt
@@ -53,9 +53,11 @@ async def read_users_me(current_user: Annotated[User, Depends(get_current_user)]
     return current_user
 
 
-@router.post("/token")
+@router.post("/token", response_model=Token)
 async def login_for_access_token(
-    form_data: Annotated[OAuth2PasswordRequestForm, Depends()], session: SessionDep
+    response: Response,
+    form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
+    session: SessionDep,
 ) -> Token:
     user = authenticate_user(form_data.username, form_data.password, session)
     if not user:
@@ -68,6 +70,17 @@ async def login_for_access_token(
     access_token = create_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
+
+    response.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        samesite="lax",
+        secure=False,
+        max_age=int(access_token_expires.total_seconds()),
+        path="/",
+    )
+
     return Token(access_token=access_token, token_type="bearer")
 
 
