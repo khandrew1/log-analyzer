@@ -43,16 +43,11 @@ const Login = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const params = new URLSearchParams();
-    params.append("username", values.username);
-    params.append("password", values.password);
-
     try {
-      const res = await fetch("http://localhost:8000/token", {
+      const res = await fetch("/api/login", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        credentials: "include",
-        body: params.toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
 
       if (!res.ok) {
@@ -60,8 +55,19 @@ const Login = () => {
       }
 
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      let message = "An unexpected error occurred.";
+
+      if (err instanceof Error) {
+        message = err.message;
+      } else if (typeof err === "string") {
+        message = err;
+      }
+      if (typeof setError === "function") {
+        setError(message);
+      } else {
+        console.error("Login error:", message);
+      }
     }
   };
 

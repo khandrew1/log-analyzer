@@ -50,10 +50,9 @@ const Dashboard = () => {
     formData.append("file", fileToUpload);
 
     try {
-      const uploadLogsRes = await fetch("http://localhost:8000/upload", {
+      const uploadLogsRes = await fetch("/api/upload", {
         method: "POST",
         body: formData,
-        credentials: "include",
       });
 
       if (!uploadLogsRes.ok) {
@@ -68,7 +67,7 @@ const Dashboard = () => {
       const uploadResult: UploadResponse = await uploadLogsRes.json();
       console.log("Upload successful:", uploadResult);
 
-      const analysisRes = await fetch("http://localhost:8000/analyze", {
+      const analysisRes = await fetch("/api/analyze", {
         method: "GET",
         credentials: "include",
       });
@@ -78,7 +77,7 @@ const Dashboard = () => {
         try {
           const errorData = await analysisRes.json();
           errorMsg = errorData.detail || errorData.message || errorMsg;
-        } catch (e) {
+        } catch {
           /* Ignore if response isn't JSON */
         }
         throw new Error(errorMsg);

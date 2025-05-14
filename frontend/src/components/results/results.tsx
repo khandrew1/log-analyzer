@@ -6,6 +6,8 @@ import { AnomalyLog, Log } from "@/components/dashboard/types";
 import { useEffect, useState } from "react";
 
 import type { CombinedResult } from "@/components/dashboard/types";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Results = () => {
   const [results, setResults] = useState<CombinedResult | null>(null);
@@ -66,6 +68,9 @@ const Results = () => {
               />
             ))}
           </div>
+          <Link href="/dashboard">
+            <Button className="cursor-pointer">Analyze another file...</Button>
+          </Link>
         </div>
       )}
     </>

@@ -54,8 +54,19 @@ const Register = () => {
       }
 
       router.push("/login");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      let message = "An unexpected error occurred.";
+
+      if (err instanceof Error) {
+        message = err.message;
+      } else if (typeof err === "string") {
+        message = err;
+      }
+      if (typeof setError === "function") {
+        setError(message);
+      } else {
+        console.error("Login error:", message);
+      }
     }
   };
 

@@ -12,7 +12,9 @@ const ProtectedPage = ({ children }: ProtectedPageProps) => {
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/users/me", { credentials: "include" })
+    fetch(`/api/auth`, {
+      credentials: "include",
+    })
       .then((res) => {
         if (!res.ok) router.replace("/login");
         else setChecking(false);

@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/code/app
+
+    environment:
+      - SECRET_KEY=17e5ba9b02395bd8f3073163a8a2e545af285b7d647865d09726fb9ca2e8cce0
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+      - GEMINI_API_KEY=AIzaSyA39mEIuZvI4nrVrzKP-f-hvtbugDGuK8E
+
+    container_name: myapp-backend
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - FASTAPI_BACKEND_URL=http://backend:8000
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+
+    container_name: myapp-frontend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

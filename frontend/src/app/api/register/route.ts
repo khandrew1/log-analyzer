@@ -3,7 +3,7 @@ export async function POST(request: Request) {
   const { username, password } = body;
 
   try {
-    const res = await fetch("http://localhost:8000/register", {
+    const res = await fetch(`${process.env.FASTAPI_BACKEND_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
